@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 3</title>
+</head>
+<body>
+    <p>La cadena de texto que utilizaremos es: "Dime por que te parece que soy como cualquier loco. ¿Es que tu no te das cuenta que estamos hechos el uno para el otro?"</p>
+    <p id="ejercicio1"></p>
+    <p id="ejercicio2"></p>
+    <p id="ejercicio3"></p>
+    <p id="ejercicio4"></p>
+    <p id="ejercicio5"></p>
+    <p id="ejercicio6"></p>
+    <p id="ejercicio7"></p>
+    <script>
+        cadenaejemplo = "Dime por que te parece que soy como cualquier loco. ¿Es que tu no te das cuenta que estamos hechos el uno para el otro?"
+        function invertircadena(cadena) {
+            let cadenavacia = "";
+            for (i = cadena.length - 1; i >= 0; i--) {
+                cadenavacia += cadena.at(i);
+            }
+            return cadenavacia
+        }
+        document.getElementById("ejercicio1").innerHTML = invertircadena(cadenaejemplo);
+        function contarletra(cadena, letra) {
+            let contador = 0;
+            for (j = 0; j < cadena.length; j++) {
+                if (cadena.toLowerCase().at(j) === letra) {
+                    contador++
+                }
+            }
+            return contador
+        }
+        document.getElementById("ejercicio2").innerHTML = "La letra e aparece " + contarletra(cadenaejemplo, "e") + " veces"
+        function palindromo(cadena) {
+            cadenasinespacios = cadena.replace(" ","");
+            let cadenainvertida = invertircadena(cadenasinespacios);
+            if (cadenainvertida === cadenasinespacios) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        document.getElementById("ejercicio3").innerHTML = palindromo(cadenaejemplo)
+        function contarvocales(cadena) {
+            let vocales = 0;
+            listavocales = ["a", "e", "i", "o", "u"];
+            for (k = 0; k < listavocales.length; k++) {
+                vocales += contarletra(cadena, listavocales[k]);
+            }
+            return vocales;
+        }
+        document.getElementById("ejercicio4").innerHTML = "En esta cadena aparecen " + contarvocales(cadenaejemplo) + " vocales"
+        function reemplazarpalabra(cadena, palabraoriginal, palabranueva) {
+            let nuevacadena = cadena.replaceAll(palabraoriginal, palabranueva);
+            return nuevacadena;
+        }
+        document.getElementById("ejercicio5").innerHTML = reemplazarpalabra(cadenaejemplo, "loco", "idiota")
+    </script>
+</body>
+</html>
