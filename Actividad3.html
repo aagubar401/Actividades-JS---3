@@ -58,6 +58,15 @@
             return nuevacadena;
         }
         document.getElementById("ejercicio5").innerHTML = reemplazarpalabra(cadenaejemplo, "loco", "idiota")
+        function mayuscula(cadena) {
+            let arraycadena = cadena.split(" ");
+            for (m = 0; m < arraycadena.length; k++) {
+                arraycadena[m].at(0).toUpperCase();
+            }
+            cadenanueva = arraycadena.join(" ");
+            return cadenanueva
+        }
+        document.getElementById("ejercicio6").innerHTML = mayuscula(cadenaejemplo)
     </script>
 </body>
 </html>
