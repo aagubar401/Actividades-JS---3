@@ -27,7 +27,7 @@
         function contarletra(cadena, letra) {
             let contador = 0;
             for (j = 0; j < cadena.length; j++) {
-                if (cadena.toLowerCase().at(j) === letra) {
+                if (cadena.toLowerCase()[j] === letra) {
                     contador++
                 }
             }
@@ -60,13 +60,25 @@
         document.getElementById("ejercicio5").innerHTML = reemplazarpalabra(cadenaejemplo, "loco", "idiota")
         function mayuscula(cadena) {
             let arraycadena = cadena.split(" ");
-            for (m = 0; m < arraycadena.length; k++) {
-                arraycadena[m].at(0).toUpperCase();
+            arraymayuscula = [];
+            for (m = 0; m < arraycadena.length; m++) {
+                palabramayuscula = arraycadena[m].charAt(0).toUpperCase() + arraycadena[m].slice(1);
+                arraymayuscula.push(palabramayuscula);
             }
-            cadenanueva = arraycadena.join(" ");
+            let cadenanueva = arraymayuscula.join(" ");
             return cadenanueva
         }
         document.getElementById("ejercicio6").innerHTML = mayuscula(cadenaejemplo)
+        function contarletracharat (cadena, letra) {
+            let contador = 0;
+            for (j = 0; j < cadena.length; j++) {
+                if (cadena.toLowerCase().charAt(j) === letra) {
+                    contador++
+                }
+            }
+            return contador
+        }
+        document.getElementById("ejercicio7").innerHTML = "La letra n aparece " + contarletra(cadenaejemplo, "n") + " veces"
     </script>
 </body>
 </html>
